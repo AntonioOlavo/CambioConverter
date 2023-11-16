@@ -46,6 +46,14 @@ export default function Home({ navigation }) {
     });
   };
 
+  const voltar = () => {
+    navigation.navigate("Login", {
+    });
+  };
+
+
+
+
 
   return (
     <View>
@@ -85,17 +93,26 @@ export default function Home({ navigation }) {
 
       {valorConvertido > 0 && <Text> <h1>Valor Convertido: {valorConvertido}</h1></Text>}
       
-    
-      <Button  title="Comprar" onPress={() => converter()} />
+      <br></br>
+      <Button  title="Comprar?" onPress={() => converter()} />
+
+      <br></br>
+
+      <Button  title="Voltar?" onPress={() => voltar()} />
+
+
     
     </View>
+
+    
+
   );
 }
 
 
 const styles = StyleSheet.create({
   input: {
-    
+
     width: "50%",
     height: 40,
     margin: 12,

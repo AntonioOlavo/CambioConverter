@@ -78,6 +78,7 @@ export default function Login({ navigation }) {
       <Text style={{ color: "red", marginBottom: "1em" }}>{error}</Text>
       <Button title="Entrar" onPress={() => userLogin()} />
       <br></br>
+      <br></br>
       <Button title="Cadastre-se" onPress={() => validateUser2()} />
 
     </SafeAreaView>

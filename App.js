@@ -9,6 +9,7 @@ import {StatusBar}  from 'expo-status-bar';
 //import Cadastro from './src/Style';
 import React from 'react';
 import {ImageBackground, StyleSheet, Image, Text, View} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 //import * as React from 'react';
 //import { NavigationContainer, DefaulTheme} from 'react-native';
@@ -21,7 +22,9 @@ export default function App() {
   return (
     
       <NavigationContainer>
+
       
+
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Cambio Converter APP"
@@ -47,13 +50,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imagemFundo:{
-    flex:1,
-    resizeMode:"cover"
-    
-  }
 
 });
+
+
 
 
 
