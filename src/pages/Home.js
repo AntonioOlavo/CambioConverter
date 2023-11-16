@@ -97,6 +97,7 @@ export default function Home({ navigation }) {
       <Button  title="Comprar?" onPress={() => converter()} />
 
       <br></br>
+      <br></br>
 
       <Button  title="Voltar?" onPress={() => voltar()} />
 

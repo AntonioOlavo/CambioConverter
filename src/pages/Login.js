@@ -79,6 +79,7 @@ export default function Login({ navigation }) {
       <Button title="Entrar" onPress={() => userLogin()} />
       <br></br>
       <br></br>
+      
       <Button title="Cadastre-se" onPress={() => validateUser2()} />
 
     </SafeAreaView>
