@@ -1,8 +1,6 @@
 //import database from './config/Firebaseconfig';
-import { View } from 'react-native';
-import { styles } from '../Style';
 import * as React from 'react';
-import {Button,} from "react-native";
+import { Button, SafeAreaView, Text } from "react-native";
 
 
 export default function Cambio({ route, navigation }) {
@@ -15,23 +13,34 @@ export default function Cambio({ route, navigation }) {
   };
 
   const sair = () => {
-    navigation.navigate("Home", {
+    navigation.navigate("Login", {
     });
   };
 
 
   return (
     
-    <View styles={styles.Container}>
-      <h1>Meus Parabéns</h1>
-      <h1>Voce Comprou {valor.toFixed(2)} {moeda}</h1>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        alignItems: "center",
+        paddingTop: "2em",
+        backgroundColor: "#afd2fa",
+      }}
+      >   
+      <Text style={{fontSize: '2em'}}><h1>Parabéns</h1></Text>
+      <Text style={{ fontSize: '1.2em' }}>Você Comprou
+        <Text style={{marginLeft: '1em' ,fontWeight: 700}}>
+        {valor.toFixed(2)} {moeda}
+        </Text>
+        </Text>
 
       <br></br>
       <Button  title="Realizar Outra Compra?" onPress={() => voltar2()} />
       <br></br>
       <br></br>
       <Button  title="Sair?" onPress={() => sair()} />
-    </View>
+    </SafeAreaView>
 
 
   )

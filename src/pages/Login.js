@@ -1,44 +1,40 @@
 //import database from './config/Firebaseconfig';
-import { useState } from 'react';
-import {signInWithEmailAndPassword} from 'firebase/auth';
-import { auth } from './config/Firebaseconfig';
-import * as React from 'react';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import * as React from "react";
 import {
-  Button,
   SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
+  View
 } from "react-native";
+import { auth } from "./config/Firebaseconfig";
 
 export default function Login({ navigation }) {
   const [username, onChangeUserName] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   const [error, onChangeError] = React.useState("");
-  
+
   /*const validLogin = {
     username: "olavo@gmail.com",
     password: "1234",
   };*/
 
-  function userLogin(){
-    
+  function userLogin() {
     signInWithEmailAndPassword(auth, username, password)
-    .then((userCredential) => {
-      navigation.navigate("Home");
-      const user = userCredential.user;
-     // alert('Login Efetuado');
-      console.log(user);
-      
-    })
-    
-    .catch((error) =>{
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
-    })
-    
-    
+      .then((userCredential) => {
+        navigation.navigate("Home");
+        const user = userCredential.user;
+        // alert('Login Efetuado');
+        console.log(user);
+      })
+
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   }
 
   /*const validateUser = () => {
@@ -53,11 +49,18 @@ export default function Login({ navigation }) {
 
   const validateUser2 = () => {
     navigation.navigate("Cadastro");
-
+    
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, alignItems: "center", marginTop: "2em" }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        alignItems: "center",
+        paddingTop: "2em",
+        backgroundColor: "#afd2fa",
+      }}
+    >
       <TextInput
         style={styles.input}
         onChangeText={onChangeUserName}
@@ -76,12 +79,21 @@ export default function Login({ navigation }) {
         onFocus={(e) => onChangeError("")}
       />
       <Text style={{ color: "red", marginBottom: "1em" }}>{error}</Text>
-      <Button title="Entrar" onPress={() => userLogin()} />
-      <br></br>
-      <br></br>
-      
-      <Button title="Cadastre-se" onPress={() => validateUser2()} />
+      <View style={{flex: 1, gap: '2em',  width: '50%'}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => userLogin()}
+        >
+          <Text style={styles.textButton}>Entrar</Text>
+        </TouchableOpacity>
 
+        <TouchableOpacity
+           style={styles.button}
+          onPress={() => validateUser2()}
+        >
+           <Text style={styles.textButton}>Cadastre-se</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -92,8 +104,17 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     padding: 10,
-    
   },
+   button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'black',
+  },
+  textButton: {
+     color: "white"
+   }
 });
-
-

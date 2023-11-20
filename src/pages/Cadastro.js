@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Button , Text , SafeAreaView, StyleSheet, TextInput} from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {auth} from './config/Firebaseconfig';
+import * as React from 'react';
+import { Button, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
+import { auth } from './config/Firebaseconfig';
 
 
 
@@ -49,8 +49,14 @@ export default function Cadastro ({ navigation }) {
   //}
 
   return (
-    <SafeAreaView>
-      <TextInput
+    <SafeAreaView
+      style={{
+        flex: 1,
+        alignItems: "center",
+        paddingTop: "2em",
+        backgroundColor: "#afd2fa",
+      }}
+      >         <TextInput
         style={styles.input}
         placeholder="Coloque um E-mail Para Cadastro"
         keyboardType="email-address"

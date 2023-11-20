@@ -1,7 +1,7 @@
 //import database from './config/Firebaseconfig';
 import { Picker } from "@react-native-picker/picker";
 import * as React from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function Home({ navigation }) {
   const [valor, onChangeValor] = React.useState(1);
@@ -56,8 +56,16 @@ export default function Home({ navigation }) {
 
 
   return (
-    <View>
-      <TextInput
+<SafeAreaView
+      style={{
+        flex: 1,
+        alignItems: "center",
+        paddingTop: "2em",
+        backgroundColor: "#afd2fa",
+      }}
+      >      
+      <View>
+    <TextInput
         style={styles.input}
         onChangeText={(e) => onChangeValor(Number(e))}
         placeholder="Insira um valor"
@@ -91,7 +99,8 @@ export default function Home({ navigation }) {
         </Picker>
       </View>
 
-      {valorConvertido > 0 && <Text> <h1>Valor Convertido: {valorConvertido}</h1></Text>}
+      <View>
+      {valorConvertido > 0 && <Text> <h1>Valor Convertido: {Number(valorConvertido).toFixed(2)}</h1></Text>}
       
       <br></br>
       <Button  title="Comprar?" onPress={() => converter()} />
@@ -100,10 +109,12 @@ export default function Home({ navigation }) {
       <br></br>
 
       <Button  title="Voltar?" onPress={() => voltar()} />
+      </View>
+      </View>
 
 
     
-    </View>
+    </SafeAreaView>
 
     
 
@@ -114,7 +125,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   input: {
 
-    width: "50%",
+    width: "90%",
     height: 40,
     margin: 12,
     borderWidth: 1,
